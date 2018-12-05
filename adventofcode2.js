@@ -1,4 +1,5 @@
 const _ = require("lodash");
+const fs = require("fs");
 
 // Day 2: Part 1
 const countValues = (number, boxIds) =>
@@ -11,7 +12,7 @@ const countValues = (number, boxIds) =>
 
 const checkSum = boxIds => countValues(2, boxIds) * countValues(3, boxIds);
 
-console.log(checkSum(process.argv[2]));
+console.log(checkSum(fs.readFileSync("./puzzle_inputs/adventofcode2.txt")));
 
 // Day 2: Part 2
 const differenceBuilder = (string1, string2) => {
@@ -49,4 +50,8 @@ const commonLetters = (boxIds, differencesArray = []) => {
   return commonLetters(remainingBoxIds, differencesArray);
 };
 
-console.log(commonLetters(_.split(process.argv[2], /\n/)));
+console.log(
+  commonLetters(
+    _.split(fs.readFileSync("./puzzle_inputs/adventofcode2.txt"), /\n/)
+  )
+);

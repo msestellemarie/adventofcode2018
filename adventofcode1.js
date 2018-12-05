@@ -1,4 +1,5 @@
 const _ = require("lodash");
+const fs = require("fs");
 
 // Day 1: Part 1
 const frequencyChecker = frequencyChanges =>
@@ -8,7 +9,9 @@ const frequencyChecker = frequencyChanges =>
     .reduce((accum, value) => accum + value, 0)
     .value();
 
-console.log(frequencyChecker(process.argv[2]));
+console.log(
+  frequencyChecker(fs.readFileSync("./puzzle_inputs/adventofcode1.txt"))
+);
 
 // Day 1: Part 2
 const frequencyRepeat = frequencyChanges => {
@@ -30,4 +33,6 @@ const frequencyRepeat = frequencyChanges => {
   }
 };
 
-console.log(frequencyRepeat(process.argv[2]));
+console.log(
+  frequencyRepeat(fs.readFileSync("./puzzle_inputs/adventofcode1.txt"))
+);

@@ -1,4 +1,5 @@
 const _ = require("lodash");
+const fs = require("fs");
 
 // Day 3: Part 1
 const coordinateCreator = claim => {
@@ -36,7 +37,9 @@ const claimsOverlap = claims =>
     .reduce((accum, value) => (value > 1 ? accum + 1 : accum), 0)
     .value();
 
-console.log(claimsOverlap(process.argv[2]));
+console.log(
+  claimsOverlap(fs.readFileSync("./puzzle_inputs/adventofcode3.txt"))
+);
 
 // Day 3: Part 2
 const noOverlap = claims => {
@@ -74,4 +77,4 @@ const noOverlap = claims => {
   }
 };
 
-console.log(noOverlap(process.argv[2]));
+console.log(noOverlap(fs.readFileSync("./puzzle_inputs/adventofcode3.txt")));
